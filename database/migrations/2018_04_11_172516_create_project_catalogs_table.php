@@ -13,7 +13,7 @@ class CreateProjectCatalogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_project_catalogs', function (Blueprint $table) {
+        Schema::create('project_catalogs', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('name', 100)->comment('项目目录名称');
@@ -31,6 +31,6 @@ class CreateProjectCatalogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_project_catalogs');
+        Schema::dropIfExists('project_catalogs');
     }
 }

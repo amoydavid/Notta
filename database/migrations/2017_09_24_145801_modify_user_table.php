@@ -13,7 +13,7 @@ class ModifyUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('wz_users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->tinyInteger('status', false, true)
                 ->nullable()
                 ->default(1)

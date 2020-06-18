@@ -36,7 +36,7 @@ return [
     /**
      * 版权地址
      */
-    'copyright'            => env('WIZARD_COPYRIGHT', 'AICODE.CC'),
+    'copyright'            => env('WIZARD_COPYRIGHT', 'Notta'),
 
     /**
      * 管理员在公共页面可以查看所有项目

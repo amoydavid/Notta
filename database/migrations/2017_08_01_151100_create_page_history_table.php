@@ -13,7 +13,7 @@ class CreatePageHistoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_page_histories', function (Blueprint $table) {
+        Schema::create('page_histories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('page_id', false, true)->comment('文档ID');
             $table->integer('pid', false, true)->nullable()->comment('上级页面ID');
@@ -36,6 +36,6 @@ class CreatePageHistoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_page_histories');
+        Schema::dropIfExists('page_histories');
     }
 }

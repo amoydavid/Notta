@@ -34,7 +34,7 @@ use Carbon\Carbon;
  */
 class PageShare extends Repository
 {
-    protected $table = 'wz_page_share';
+    protected $table = 'page_share';
     protected $fillable
         = [
             'code',

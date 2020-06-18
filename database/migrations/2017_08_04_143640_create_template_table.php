@@ -13,7 +13,7 @@ class CreateTemplateTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_templates', function (Blueprint $table) {
+        Schema::create('templates', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->comment('模板标题');
             $table->string('description')->nullable()->comment('模板简述');
@@ -33,6 +33,6 @@ class CreateTemplateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_templates');
+        Schema::dropIfExists('templates');
     }
 }

@@ -91,7 +91,7 @@ class HomeController extends Controller
                     $query->orWhere(function ($query) use ($userGroups) {
                         $query->where('visibility', '!=', Project::VISIBILITY_PUBLIC)
                             ->whereHas('groups', function ($query) use ($userGroups) {
-                                $query->where('wz_groups.id', $userGroups);
+                                $query->where('groups.id', $userGroups);
                             });
                     })->orWhere('user_id', $user->id);
                 }

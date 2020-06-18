@@ -13,7 +13,7 @@ class CreateAttachmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_attachments', function (Blueprint $table) {
+        Schema::create('attachments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->comment('附件名称');
             $table->string('path')->comment('存储路径');
@@ -32,6 +32,6 @@ class CreateAttachmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_attachments');
+        Schema::dropIfExists('attachments');
     }
 }

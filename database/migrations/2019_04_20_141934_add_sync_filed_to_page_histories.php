@@ -13,7 +13,7 @@ class AddSyncFiledToPageHistories extends Migration
      */
     public function up()
     {
-        Schema::table('wz_page_histories', function (Blueprint $table) {
+        Schema::table('page_histories', function (Blueprint $table) {
             $table->string('sync_url')->nullable()->comment('文档同步地址：swagger专用');
             $table->timestamp('last_sync_at')->nullable()->comment('文档最后同步时间');
         });
@@ -26,7 +26,7 @@ class AddSyncFiledToPageHistories extends Migration
      */
     public function down()
     {
-        Schema::table('wz_page_histories', function (Blueprint $table) {
+        Schema::table('page_histories', function (Blueprint $table) {
             //
         });
     }

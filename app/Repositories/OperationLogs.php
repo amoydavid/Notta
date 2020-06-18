@@ -30,7 +30,7 @@ namespace App\Repositories;
  */
 class OperationLogs extends Repository
 {
-    protected $table = 'wz_operation_logs';
+    protected $table = 'operation_logs';
     protected $fillable
         = [
             'user_id',

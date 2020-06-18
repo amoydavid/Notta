@@ -13,7 +13,7 @@ class OptimizePageHistories extends Migration
      */
     public function up()
     {
-        Schema::table('wz_page_histories', function (Blueprint $table) {
+        Schema::table('page_histories', function (Blueprint $table) {
             $table->index(['page_id']);
         });
     }
@@ -25,7 +25,7 @@ class OptimizePageHistories extends Migration
      */
     public function down()
     {
-        Schema::table('wz_page_histories', function (Blueprint $table) {
+        Schema::table('page_histories', function (Blueprint $table) {
             //
         });
     }

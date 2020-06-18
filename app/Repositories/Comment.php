@@ -46,7 +46,7 @@ class Comment extends Repository
 {
     use SoftDeletes;
 
-    protected $table = 'wz_comments';
+    protected $table = 'comments';
     protected $fillable
         = [
             'page_id',

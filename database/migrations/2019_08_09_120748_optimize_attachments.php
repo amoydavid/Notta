@@ -13,7 +13,7 @@ class OptimizeAttachments extends Migration
      */
     public function up()
     {
-        Schema::table('wz_attachments', function (Blueprint $table) {
+        Schema::table('attachments', function (Blueprint $table) {
             $table->index(['page_id']);
         });
     }
@@ -25,7 +25,7 @@ class OptimizeAttachments extends Migration
      */
     public function down()
     {
-        Schema::table('wz_attachments', function (Blueprint $table) {
+        Schema::table('attachments', function (Blueprint $table) {
             //
         });
     }

@@ -51,6 +51,6 @@
             </a>
         @endif
 
-        <p class="mt-5 mb-3 text-muted">&copy; {{ date('Y') }} {{ config('wizard.copyright', 'AICODE.CC') }}</p>
+        <p class="mt-5 mb-3 text-muted">&copy; {{ date('Y') }} {{ config('wizard.copyright', 'Notta') }}</p>
     </form>
 @endsection

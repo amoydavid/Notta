@@ -39,7 +39,7 @@ class Catalog extends Repository
      */
     const NOT_SHOW_IN_HOME = 0;
 
-    protected $table = 'wz_project_catalogs';
+    protected $table = 'project_catalogs';
     protected $fillable = [
         'name',
         'sort_level',

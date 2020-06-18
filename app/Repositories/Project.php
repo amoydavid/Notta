@@ -70,7 +70,7 @@ class Project extends Repository
      */
     const PRIVILEGE_RO = 2;
 
-    protected $table = 'wz_projects';
+    protected $table = 'projects';
     protected $fillable
         = [
             'name',
@@ -110,7 +110,7 @@ class Project extends Repository
      */
     public function groups()
     {
-        return $this->belongsToMany(Group::class, 'wz_project_group_ref', 'project_id', 'group_id')
+        return $this->belongsToMany(Group::class, 'project_group_ref', 'project_id', 'group_id')
             ->withPivot('created_at', 'updated_at', 'privilege');
     }
 
@@ -121,7 +121,7 @@ class Project extends Repository
      */
     public function favoriteUsers()
     {
-        return $this->belongsToMany(User::class, 'wz_project_stars', 'project_id', 'user_id');
+        return $this->belongsToMany(User::class, 'project_stars', 'project_id', 'user_id');
     }
 
     /**

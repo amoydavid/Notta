@@ -47,7 +47,7 @@ class Template extends Repository
     const SCOPE_GLOBAL  = 1;
     const SCOPE_PRIVATE = 2;
 
-    protected $table = 'wz_templates';
+    protected $table = 'templates';
     protected $fillable
         = [
             'name',

@@ -13,7 +13,7 @@ class CreateShareTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_page_share', function (Blueprint $table) {
+        Schema::create('page_share', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code', 64)->comment('分享标识');
             $table->integer('project_id', false, true)->comment('项目ID');
@@ -33,6 +33,6 @@ class CreateShareTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_page_share');
+        Schema::dropIfExists('page_share');
     }
 }

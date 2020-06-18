@@ -13,7 +13,7 @@ class UpdateUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('wz_users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->tinyInteger('role', false, true)->default(1)->comment('用户角色：1-普通用户，2-管理员');
         });
     }
@@ -25,7 +25,7 @@ class UpdateUserTable extends Migration
      */
     public function down()
     {
-        Schema::table('wz_users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

@@ -13,7 +13,7 @@ class CreatePageTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_pages', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('pid', false, true)->nullable()->comment('上级页面ID');
             $table->string('title')->comment('页面标题');
@@ -39,6 +39,6 @@ class CreatePageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_pages');
+        Schema::dropIfExists('pages');
     }
 }

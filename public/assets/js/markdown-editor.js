@@ -79,6 +79,7 @@ $.wz.mdEditor = function (editor_id, params) {
     };
 
     var mdEditor = editormd(editor_id, {
+        mode: 'gfm',
         path: "/assets/vendor/editor-md/lib/",
         height: 800,
         taskList: true,

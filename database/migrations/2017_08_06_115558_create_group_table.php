@@ -13,7 +13,7 @@ class CreateGroupTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_groups', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->comment('组名称');
             $table->integer('user_id', false, true)->nullable()->comment('创建者ID');
@@ -28,6 +28,6 @@ class CreateGroupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_groups');
+        Schema::dropIfExists('groups');
     }
 }

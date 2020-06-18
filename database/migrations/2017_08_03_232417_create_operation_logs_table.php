@@ -13,7 +13,7 @@ class CreateOperationLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_operation_logs', function (Blueprint $table) {
+        Schema::create('operation_logs', function (Blueprint $table) {
 //            $table->engine = 'ARCHIVE';
 
             $table->increments('id');
@@ -31,6 +31,6 @@ class CreateOperationLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_operation_logs');
+        Schema::dropIfExists('operation_logs');
     }
 }

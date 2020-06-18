@@ -70,7 +70,7 @@ class Document extends Repository
     const TYPE_SWAGGER = 2;
     const TYPE_TABLE   = 3;
 
-    protected $table = 'wz_pages';
+    protected $table = 'pages';
     protected $fillable
         = [
             'pid',
@@ -193,7 +193,7 @@ class Document extends Repository
      */
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'wz_page_tag', 'page_id', 'tag_id');
+        return $this->belongsToMany(Tag::class, 'page_tag', 'page_id', 'tag_id');
     }
 
     /**

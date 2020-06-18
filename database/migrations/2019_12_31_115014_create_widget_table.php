@@ -13,7 +13,7 @@ class CreateWidgetTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_widgets', function (Blueprint $table) {
+        Schema::create('widgets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable()->comment('控件标题');
             $table->string('ref_id', 64)->comment('UUID，用于唯一标识控件');
@@ -37,6 +37,6 @@ class CreateWidgetTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_widgets');
+        Schema::dropIfExists('widgets');
     }
 }

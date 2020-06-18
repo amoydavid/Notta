@@ -13,7 +13,7 @@ class ModifyProjectTable extends Migration
      */
     public function up()
     {
-        Schema::table('wz_projects', function (Blueprint $table) {
+        Schema::table('projects', function (Blueprint $table) {
             $table->integer('sort_level')->default(1000)->comment('项目排序，排序值越大越靠后');
         });
     }

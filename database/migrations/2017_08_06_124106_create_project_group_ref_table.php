@@ -13,7 +13,7 @@ class CreateProjectGroupRefTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_project_group_ref', function (Blueprint $table) {
+        Schema::create('project_group_ref', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('project_id', false, true)->comment('项目ID');
             $table->integer('group_id', false, true)->comment('组ID');
@@ -30,6 +30,6 @@ class CreateProjectGroupRefTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_project_group_ref');
+        Schema::dropIfExists('project_group_ref');
     }
 }

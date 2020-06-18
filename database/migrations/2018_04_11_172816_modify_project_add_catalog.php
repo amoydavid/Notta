@@ -13,7 +13,7 @@ class ModifyProjectAddCatalog extends Migration
      */
     public function up()
     {
-        Schema::table('wz_projects', function (Blueprint $table) {
+        Schema::table('projects', function (Blueprint $table) {
             $table->integer('catalog_id', false, true)->nullable()->comment('目录ID');
         });
     }
@@ -25,7 +25,7 @@ class ModifyProjectAddCatalog extends Migration
      */
     public function down()
     {
-        Schema::table('wz_projects', function (Blueprint $table) {
+        Schema::table('projects', function (Blueprint $table) {
             //
         });
     }

@@ -13,7 +13,7 @@ class CreatePageTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_page_tag', function (Blueprint $table) {
+        Schema::create('page_tag', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('page_id')->comment('页面 ID');
             $table->unsignedInteger('tag_id')->comment('标签 ID');
@@ -29,6 +29,6 @@ class CreatePageTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_page_tag');
+        Schema::dropIfExists('page_tag');
     }
 }

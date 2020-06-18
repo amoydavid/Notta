@@ -31,7 +31,7 @@ use Carbon\Carbon;
  */
 class Group extends Repository
 {
-    protected $table = 'wz_groups';
+    protected $table = 'groups';
     protected $fillable
         = [
             'name',
@@ -45,7 +45,7 @@ class Group extends Repository
      */
     public function users()
     {
-        return $this->belongsToMany(User::class, 'wz_user_group_ref', 'group_id', 'user_id');
+        return $this->belongsToMany(User::class, 'user_group_ref', 'group_id', 'user_id');
     }
 
     /**
@@ -65,7 +65,7 @@ class Group extends Repository
      */
     public function projects()
     {
-        return $this->belongsToMany(Project::class, 'wz_project_group_ref', 'group_id', 'project_id')
+        return $this->belongsToMany(Project::class, 'project_group_ref', 'group_id', 'project_id')
             ->withPivot('created_at', 'updated_at', 'privilege');
     }
 }

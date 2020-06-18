@@ -48,7 +48,7 @@ class Attachment extends Repository
 {
     use SoftDeletes;
 
-    protected $table = 'wz_attachments';
+    protected $table = 'attachments';
     protected $fillable
         = [
             'name',

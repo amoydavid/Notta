@@ -168,7 +168,7 @@ class GroupController extends Controller
             [
                 'name' => [
                     'required',
-                    Rule::unique('wz_groups', 'name')->ignore($id),
+                    Rule::unique('groups', 'name')->ignore($id),
                 ]
             ],
             [

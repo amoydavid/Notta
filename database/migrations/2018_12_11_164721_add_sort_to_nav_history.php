@@ -13,7 +13,7 @@ class AddSortToNavHistory extends Migration
      */
     public function up()
     {
-        Schema::table('wz_page_histories', function (Blueprint $table) {
+        Schema::table('page_histories', function (Blueprint $table) {
             $table->integer('sort_level')->default(1000)->comment('项目排序，排序值越大越靠后');
         });
     }
@@ -25,7 +25,7 @@ class AddSortToNavHistory extends Migration
      */
     public function down()
     {
-        Schema::table('wz_page_histories', function (Blueprint $table) {
+        Schema::table('page_histories', function (Blueprint $table) {
             //
         });
     }

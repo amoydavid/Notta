@@ -1882,7 +1882,7 @@
                 renderer: editormd.markedRenderer(markdownToC, rendererOptions),
                 gfm: true,
                 tables: true,
-                breaks: false, // 避免手写table时产生多余的br
+                breaks: true, // 避免手写table时产生多余的br
                 pedantic: false,
                 sanitize: (settings.htmlDecode) ? false : true,  // 关闭忽略HTML标签，即开启识别HTML标签，默认为false
                 smartLists: true,
@@ -3810,7 +3810,7 @@
             renderer: editormd.markedRenderer(markdownToC, rendererOptions),
             gfm: settings.gfm,
             tables: true,
-            breaks: false,
+            breaks: true,
             pedantic: false,
             sanitize: (settings.htmlDecode) ? false : true, // 是否忽略HTML标签，即是否开启HTML标签解析，为了安全性，默认不开启
             smartLists: true,

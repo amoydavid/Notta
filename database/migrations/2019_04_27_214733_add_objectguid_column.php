@@ -13,7 +13,7 @@ class AddObjectguidColumn extends Migration
      */
     public function up()
     {
-        Schema::table('wz_users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->string('objectguid')->nullable()->after('id');
         });
     }
@@ -25,7 +25,7 @@ class AddObjectguidColumn extends Migration
      */
     public function down()
     {
-        Schema::table('wz_users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

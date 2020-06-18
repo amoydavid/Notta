@@ -13,7 +13,7 @@ class OptimizeProjectStars extends Migration
      */
     public function up()
     {
-        Schema::table('wz_project_stars', function (Blueprint $table) {
+        Schema::table('project_stars', function (Blueprint $table) {
             $table->index(['user_id', 'project_id']);
         });
     }
@@ -25,7 +25,7 @@ class OptimizeProjectStars extends Migration
      */
     public function down()
     {
-        Schema::table('wz_project_stars', function (Blueprint $table) {
+        Schema::table('project_stars', function (Blueprint $table) {
             //
         });
     }

@@ -13,7 +13,7 @@ class AddShowInHomeToCatalogs extends Migration
      */
     public function up()
     {
-        Schema::table('wz_project_catalogs', function (Blueprint $table) {
+        Schema::table('project_catalogs', function (Blueprint $table) {
             $table->tinyInteger('show_in_home', false, false)->default(1)->comment('是否在首页展示');
         });
     }
@@ -25,7 +25,7 @@ class AddShowInHomeToCatalogs extends Migration
      */
     public function down()
     {
-        Schema::table('wz_project_catalogs', function (Blueprint $table) {
+        Schema::table('project_catalogs', function (Blueprint $table) {
             //
         });
     }

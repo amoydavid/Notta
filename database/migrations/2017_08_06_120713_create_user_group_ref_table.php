@@ -13,7 +13,7 @@ class CreateUserGroupRefTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_user_group_ref', function (Blueprint $table) {
+        Schema::create('user_group_ref', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id', false, true)->comment('用户ID');
             $table->integer('group_id', false, true)->comment('组ID');
@@ -30,6 +30,6 @@ class CreateUserGroupRefTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_user_group_ref');
+        Schema::dropIfExists('user_group_ref');
     }
 }

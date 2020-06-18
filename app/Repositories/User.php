@@ -60,7 +60,7 @@ class User extends Authenticatable
     const STATUS_ACTIVATED = 1;
     const STATUS_DISABLED  = 2;
 
-    protected $table = 'wz_users';
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -115,7 +115,7 @@ class User extends Authenticatable
      */
     public function groups()
     {
-        return $this->belongsToMany(Group::class, 'wz_user_group_ref', 'user_id', 'group_id');
+        return $this->belongsToMany(Group::class, 'user_group_ref', 'user_id', 'group_id');
     }
 
     /**
@@ -125,7 +125,7 @@ class User extends Authenticatable
      */
     public function favoriteProjects()
     {
-        return $this->belongsToMany(Project::class, 'wz_project_stars', 'user_id', 'project_id');
+        return $this->belongsToMany(Project::class, 'project_stars', 'user_id', 'project_id');
     }
 
     /**

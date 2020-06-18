@@ -21,7 +21,7 @@ use Carbon\Carbon;
  */
 class Tag extends Repository
 {
-    protected $table = 'wz_tags';
+    protected $table = 'tags';
     protected $fillable = ['name'];
 
     /**
@@ -31,6 +31,6 @@ class Tag extends Repository
      */
     public function pages()
     {
-        return $this->belongsToMany(Document::class, 'wz_page_tag', 'tag_id', 'page_id');
+        return $this->belongsToMany(Document::class, 'page_tag', 'tag_id', 'page_id');
     }
 }

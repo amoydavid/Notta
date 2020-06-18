@@ -13,7 +13,7 @@ class CreateProjectStarTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_project_stars', function (Blueprint $table) {
+        Schema::create('project_stars', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('user_id', false, true)->comment('用户ID');
@@ -30,6 +30,6 @@ class CreateProjectStarTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_project_stars');
+        Schema::dropIfExists('project_stars');
     }
 }

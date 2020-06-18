@@ -13,7 +13,7 @@ class CreateProjectTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_projects', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100)->comment('项目名称');
             $table->text('description')->nullable()->comment('项目描述');
@@ -31,6 +31,6 @@ class CreateProjectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_projects');
+        Schema::dropIfExists('projects');
     }
 }

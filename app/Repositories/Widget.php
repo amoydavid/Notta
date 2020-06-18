@@ -27,7 +27,7 @@ class Widget extends Repository
     const TYPE_MIND_MAPPING = 1;
     const TYPE_MX_GRAPH = 2;
 
-    protected $table = 'wz_widgets';
+    protected $table = 'widgets';
     protected $fillable
         = [
             'name',

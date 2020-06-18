@@ -49,7 +49,7 @@ use Carbon\Carbon;
  */
 class DocumentHistory extends Repository
 {
-    protected $table = 'wz_page_histories';
+    protected $table = 'page_histories';
     protected $fillable
         = [
             'page_id',

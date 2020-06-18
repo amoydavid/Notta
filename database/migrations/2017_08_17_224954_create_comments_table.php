@@ -13,7 +13,7 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('wz_comments', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('page_id', false, true)->comment('页面ID');
             $table->integer('user_id', false, true)->comment('评论人');
@@ -31,6 +31,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wz_comments');
+        Schema::dropIfExists('comments');
     }
 }

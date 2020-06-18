@@ -13,7 +13,7 @@ class OptimizePages extends Migration
      */
     public function up()
     {
-        Schema::table('wz_pages', function (Blueprint $table) {
+        Schema::table('pages', function (Blueprint $table) {
             $table->index(['project_id']);
         });
     }
@@ -25,7 +25,7 @@ class OptimizePages extends Migration
      */
     public function down()
     {
-        Schema::table('wz_pages', function (Blueprint $table) {
+        Schema::table('pages', function (Blueprint $table) {
             //
         });
     }

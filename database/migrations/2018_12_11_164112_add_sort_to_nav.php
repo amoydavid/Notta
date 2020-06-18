@@ -13,7 +13,7 @@ class AddSortToNav extends Migration
      */
     public function up()
     {
-        Schema::table('wz_pages', function (Blueprint $table) {
+        Schema::table('pages', function (Blueprint $table) {
             $table->integer('sort_level')->default(1000)->comment('项目排序，排序值越大越靠后');
         });
     }
@@ -25,7 +25,7 @@ class AddSortToNav extends Migration
      */
     public function down()
     {
-        Schema::table('wz_pages', function (Blueprint $table) {
+        Schema::table('pages', function (Blueprint $table) {
             //
         });
     }

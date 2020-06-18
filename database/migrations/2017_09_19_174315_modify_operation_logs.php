@@ -13,7 +13,7 @@ class ModifyOperationLogs extends Migration
      */
     public function up()
     {
-        Schema::table('wz_operation_logs', function (Blueprint $table) {
+        Schema::table('operation_logs', function (Blueprint $table) {
             $table->integer('project_id', false, true)->nullable()->comment('关联的项目ID');
             $table->integer('page_id', false, true)->nullable()->comment('关联的文档ID');
         });
