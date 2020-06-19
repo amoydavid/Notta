@@ -30,7 +30,7 @@
                         <td>{{ $history->created_at }}</td>
                         <td>{{ $history->operator->name }}</td>
                         <td>
-                            <a href="{{ wzRoute('project:doc:history:show', ['id' => $project->id, 'p' => $pageItem->id, 'history_id' => $history->id]) }}">
+                            <a href="{{ wzRoute('project:doc:history:show', ['id' => $project->id, 'page_id' => $pageItem->id, 'history_id' => $history->id]) }}">
                                 <i class="material-icons" data-toggle="tooltip" title="@lang('common.btn_view')">remove_red_eye</i>
                             </a>
                             &nbsp;
@@ -48,7 +48,7 @@
                                     <i class="material-icons" data-toggle="tooltip" title="@lang('document.btn_recover')">redo</i>
                                 </a>
                                 <form id="form-recover-{{ $history->id }}"
-                                      action="{{ wzRoute('project:doc:history:recover', ['id' => $project->id, 'p' => $pageItem->id, 'history_id' => $history->id]) }}"
+                                      action="{{ wzRoute('project:doc:history:recover', ['id' => $project->id, 'page_id' => $pageItem->id, 'history_id' => $history->id]) }}"
                                       method="post">{{ csrf_field() }}{{ method_field('PUT') }}</form>
                             @endcan
                         </td>

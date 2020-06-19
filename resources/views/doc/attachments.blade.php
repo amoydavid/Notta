@@ -37,7 +37,7 @@
                                 <a href="#" wz-form-submit data-form="#form-attachment-del-{{ $attachment->id }}"
                                    data-confirm="确定要删除该附件？">删除</a>
                                 <form id="form-attachment-del-{{ $attachment->id }}"
-                                      action="{{ wzRoute('project:doc:attachment:delete', ['id' => $project->id, 'p' => $pageItem->id, 'attachment_id' => $attachment->id]) }}"
+                                      action="{{ wzRoute('project:doc:attachment:delete', ['id' => $project->id, 'page_id' => $pageItem->id, 'attachment_id' => $attachment->id]) }}"
                                       method="post">{{ csrf_field() }}{{ method_field('DELETE') }}</form>
                             @endcan
                         </td>
@@ -63,7 +63,7 @@
         <div class="wz-upload-box">
             @include('components.error', ['error' => $errors ?? null])
             <form class="form-horizontal" method="post"
-                  action="{{ wzRoute('project:doc:attachment:upload', ['id' => $project->id, 'p' => $pageItem->id]) }}"
+                  action="{{ wzRoute('project:doc:attachment:upload', ['id' => $project->id, 'page_id' => $pageItem->id]) }}"
                   enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">

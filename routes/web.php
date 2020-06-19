@@ -209,7 +209,9 @@ Route::group(['middleware' => 'locale'], function() {
                 Route::get('/{id}/doc/{page_id}/histories', 'HistoryController@pages')
                      ->name('doc:history');
                 Route::get('/{id}/doc/{page_id}/histories/{history_id}', 'HistoryController@page')
-                     ->name('doc:history:show');
+                     ->name('doc:history:show')
+                    ->where(['history_id' => '[0-9]+'])
+                ;
                 Route::put('/{id}/doc/{page_id}/histories/{history_id}', 'HistoryController@recover')
                      ->name('doc:history:recover');
 
