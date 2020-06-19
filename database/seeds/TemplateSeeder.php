@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Repositories\Template;
+use App\Models\Template;
 
 class TemplateSeeder extends Seeder
 {

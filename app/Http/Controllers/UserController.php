@@ -11,9 +11,9 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\ValidationException;
 use App\Http\Controllers\Auth\UserActivateChannel;
-use App\Repositories\Group;
-use App\Repositories\Project;
-use App\Repositories\User;
+use App\Models\Group;
+use App\Models\Project;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;

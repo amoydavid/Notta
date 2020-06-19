@@ -6,14 +6,14 @@
  * @copyright 管宜尧 <mylxsw@aicode.cc>
  */
 
-namespace App\Repositories;
+namespace App\Models;
 
 /**
  * 项目目录
  *
  * @package App\Repositories
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Project[] $projects
- * @property-read \App\Repositories\User                                               $user
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Project[] $projects
+ * @property-read \App\Models\User                                               $user
  * @property int                                                                       $id
  * @property string                                                                    $name         项目目录名称
  * @property int                                                                       $sort_level   排序，排序值越大越靠后
@@ -21,14 +21,14 @@ namespace App\Repositories;
  * @property int                                                                       $show_in_home 是否在首页展示
  * @property \Carbon\Carbon|null                                                       $created_at
  * @property \Carbon\Carbon|null                                                       $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Catalog whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Catalog whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Catalog whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Catalog whereSortLevel($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Catalog whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Catalog whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Catalog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Catalog whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Catalog whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Catalog whereSortLevel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Catalog whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Catalog whereUserId($value)
  */
-class Catalog extends Repository
+class Catalog extends BaseModel
 {
     /**
      * 在首页展示

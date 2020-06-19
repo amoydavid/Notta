@@ -25,7 +25,7 @@
                     <tr>
                         <td>
                             <p><img src="/assets/{{ $temp->type == 1 ? 'swagger' : 'markdown' }}.png" style="width: 20px;" title="{{ $temp->type == 1 ? 'swagger' : 'markdown' }}"/></p>
-                            @if($temp->scope == \App\Repositories\Template::SCOPE_GLOBAL)
+                            @if($temp->scope == \App\Models\Template::SCOPE_GLOBAL)
                                 <p><i class="material-icons" title="与他人共享的">people</i></p>
                             @endif
                         </td>

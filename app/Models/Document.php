@@ -6,7 +6,7 @@
  * @copyright 管宜尧 <mylxsw@aicode.cc>
  */
 
-namespace App\Repositories;
+namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -31,37 +31,37 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon                                                                       $created_at
  * @property Carbon                                                                       $updated_at
  * @package App\Repositories
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Attachment[] $attachments
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Comment[]    $comments
- * @property-read \App\Repositories\User                                                  $lastModifiedUser
- * @property-read \App\Repositories\Document                                              $parentPage
- * @property-read \App\Repositories\Project                                               $project
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Document[]   $subPages
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Tag[]        $tags
- * @property-read \App\Repositories\User                                                  $user
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Attachment[] $attachments
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Comment[]    $comments
+ * @property-read \App\Models\User                                                  $lastModifiedUser
+ * @property-read \App\Models\Document                                              $parentPage
+ * @property-read \App\Models\Project                                               $project
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Document[]   $subPages
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[]        $tags
+ * @property-read \App\Models\User                                                  $user
  * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Query\Builder|\App\Repositories\Document onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Document onlyTrashed()
  * @method static bool|null restore()
- * @method static \Illuminate\Database\Query\Builder|\App\Repositories\Document withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Repositories\Document withoutTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Document withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Document withoutTrashed()
  * @mixin \Eloquent
  * @property \Carbon\Carbon|null                                                          $deleted_at
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereContent($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereHistoryId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereLastModifiedUid($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document wherePid($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereProjectId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Document whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereHistoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereLastModifiedUid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document wherePid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereProjectId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Document whereUserId($value)
  */
-class Document extends Repository
+class Document extends BaseModel
 {
 
     use SoftDeletes;

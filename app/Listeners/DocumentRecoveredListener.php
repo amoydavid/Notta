@@ -10,8 +10,8 @@ namespace App\Listeners;
 
 use App\Events\DocumentRecovered;
 use App\Notifications\DocumentRecoverd;
-use App\Repositories\OperationLogs;
-use App\Repositories\User;
+use App\Models\OperationLogs;
+use App\Models\User;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

@@ -10,11 +10,11 @@ namespace App\Providers;
 
 use Adldap\Laravel\Commands\Import;
 use App\Components\LdapUserImportScope;
-use App\Repositories\Document;
-use App\Repositories\Group;
-use App\Repositories\Project;
-use App\Repositories\Template;
-use App\Repositories\User;
+use App\Models\Document;
+use App\Models\Group;
+use App\Models\Project;
+use App\Models\Template;
+use App\Models\User;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;

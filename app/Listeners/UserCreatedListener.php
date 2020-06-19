@@ -10,7 +10,7 @@ namespace App\Listeners;
 
 
 use App\Events\UserCreated;
-use App\Repositories\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 
 class UserCreatedListener

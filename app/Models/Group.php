@@ -6,7 +6,7 @@
  * @copyright 管宜尧 <mylxsw@aicode.cc>
  */
 
-namespace App\Repositories;
+namespace App\Models;
 
 use Carbon\Carbon;
 
@@ -19,17 +19,17 @@ use Carbon\Carbon;
  * @property Carbon  $created_at
  * @property Carbon  $updated_at
  * @package App\Repositories
- * @property-read \App\Repositories\User $creator
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Project[] $projects
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\User[] $users
+ * @property-read \App\Models\User $creator
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Project[] $projects
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Group whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Group whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Group whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Group whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Group whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Group whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Group whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Group whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Group whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Group whereUserId($value)
  */
-class Group extends Repository
+class Group extends BaseModel
 {
     protected $table = 'groups';
     protected $fillable

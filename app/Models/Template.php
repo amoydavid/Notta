@@ -6,7 +6,7 @@
  * @copyright 管宜尧 <mylxsw@aicode.cc>
  */
 
-namespace App\Repositories;
+namespace App\Models;
 
 use Carbon\Carbon;
 
@@ -25,18 +25,18 @@ use Carbon\Carbon;
  * @property Carbon  $updated_at
  * @package App\Repositories
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Template whereContent($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Template whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Template whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Template whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Template whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Template whereScope($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Template whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Template whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Template whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Template whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Template whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Template whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Template whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Template whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Template whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Template whereScope($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Template whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Template whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Template whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Template whereUserId($value)
  */
-class Template extends Repository
+class Template extends BaseModel
 {
     const TYPE_SWAGGER = 1;
     const TYPE_DOC     = 2;

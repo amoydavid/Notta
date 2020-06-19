@@ -6,7 +6,7 @@
  * @copyright 管宜尧 <mylxsw@aicode.cc>
  */
 
-namespace App\Repositories;
+namespace App\Models;
 
 
 /**
@@ -20,15 +20,15 @@ namespace App\Repositories;
  * @property string $created_at 创建时间
  * @property int|null $project_id 关联的项目ID
  * @property int|null $page_id 关联的文档ID
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\OperationLogs whereContext($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\OperationLogs whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\OperationLogs whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\OperationLogs whereMessage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\OperationLogs wherePageId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\OperationLogs whereProjectId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\OperationLogs whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OperationLogs whereContext($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OperationLogs whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OperationLogs whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OperationLogs whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OperationLogs wherePageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OperationLogs whereProjectId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\OperationLogs whereUserId($value)
  */
-class OperationLogs extends Repository
+class OperationLogs extends BaseModel
 {
     protected $table = 'operation_logs';
     protected $fillable

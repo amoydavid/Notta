@@ -18,6 +18,8 @@
         "lcobucci/jwt": "^3.2",
         "maennchen/zipstream-php": "*",
         "mpdf/mpdf": "^8.0",
+        "overtrue/laravel-wechat": "^5.0",
+        "overtrue/wechat": "^4.2",
         "sebastian/diff": "3.0.2",
         "soapbox/laravel-formatter": "*",
         "yzalis/identicon": "*"

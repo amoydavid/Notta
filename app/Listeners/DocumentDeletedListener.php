@@ -9,8 +9,8 @@
 namespace App\Listeners;
 
 use App\Events\DocumentDeleted;
-use App\Repositories\OperationLogs;
-use App\Repositories\User;
+use App\Models\OperationLogs;
+use App\Models\User;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

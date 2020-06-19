@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Repositories\Template;
+use App\Models\Template;
 use Illuminate\Http\Request;
 use Auth;
 

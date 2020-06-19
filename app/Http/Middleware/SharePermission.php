@@ -10,7 +10,7 @@ namespace App\Http\Middleware;
 
 
 use App\Policies\ProjectPolicy;
-use App\Repositories\PageShare;
+use App\Models\PageShare;
 
 class SharePermission
 {

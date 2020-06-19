@@ -6,10 +6,10 @@
  * @copyright 管宜尧 <mylxsw@aicode.cc>
  */
 
-use App\Repositories\Catalog;
-use App\Repositories\Document;
-use App\Repositories\Template;
-use App\Repositories\User;
+use App\Models\Catalog;
+use App\Models\Document;
+use App\Models\Template;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;

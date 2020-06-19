@@ -8,7 +8,7 @@
 
 namespace App\Events;
 
-use App\Repositories\Document;
+use App\Models\Document;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;

@@ -11,9 +11,9 @@ namespace App\Http\Controllers;
 
 use App\Events\DocumentRecovered;
 use App\Policies\ProjectPolicy;
-use App\Repositories\Document;
-use App\Repositories\DocumentHistory;
-use App\Repositories\Project;
+use App\Models\Document;
+use App\Models\DocumentHistory;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
 

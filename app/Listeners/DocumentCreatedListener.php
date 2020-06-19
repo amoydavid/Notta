@@ -9,7 +9,7 @@
 namespace App\Listeners;
 
 use App\Events\DocumentCreated;
-use App\Repositories\OperationLogs;
+use App\Models\OperationLogs;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

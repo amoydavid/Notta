@@ -13,8 +13,8 @@ use App\Events\CommentCreated;
 use App\Notifications\CommentReplied;
 use App\Notifications\DocumentCommented;
 use App\Policies\ProjectPolicy;
-use App\Repositories\Comment;
-use App\Repositories\Document;
+use App\Models\Comment;
+use App\Models\Document;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller

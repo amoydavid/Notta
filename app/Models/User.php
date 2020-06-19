@@ -6,7 +6,7 @@
  * @copyright 管宜尧 <mylxsw@aicode.cc>
  */
 
-namespace App\Repositories;
+namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
@@ -24,24 +24,24 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property Carbon                                                                                                         $created_at
  * @property Carbon                                                                                                         $updated_at
  * @package App\Repositories
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Project[]                                      $favoriteProjects
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Group[]                                        $groups
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\DocumentHistory[]                              $histories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Project[]                                      $favoriteProjects
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Group[]                                        $groups
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\DocumentHistory[]                              $histories
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Document[]                                     $pages
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Project[]                                      $projects
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Document[]                                     $pages
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Project[]                                      $projects
  * @mixin \Eloquent
  * @property string                                                                                                         $email
  * @property string|null                                                                                                    $remember_token
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\User whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\User whereRole($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\User whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRole($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
  */
 class User extends Authenticatable
 {

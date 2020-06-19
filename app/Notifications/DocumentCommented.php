@@ -8,8 +8,8 @@
 
 namespace App\Notifications;
 
-use App\Repositories\Comment;
-use App\Repositories\Document;
+use App\Models\Comment;
+use App\Models\Document;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;

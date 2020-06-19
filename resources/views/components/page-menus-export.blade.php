@@ -15,7 +15,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                @if($pageItem->type == \App\Repositories\Document::TYPE_DOC)
+                @if($pageItem->type == \App\Models\Document::TYPE_DOC)
                 <a href="#" class="dropdown-item wz-export-pdf">
                     <span class="fa fa-download mr-2"></span>
                     PDF
@@ -26,7 +26,7 @@
                 </a>
                 @endif
 
-                @if($pageItem->type == \App\Repositories\Document::TYPE_SWAGGER)
+                @if($pageItem->type == \App\Models\Document::TYPE_SWAGGER)
                 <a href="#" class="dropdown-item wz-export-swagger"
                    data-data-url="{!! wzRoute('swagger:doc:json', ['id' => $project->id, 'page_id' => $pageItem->id, 'ts' => microtime(true)])  !!}"
                    data-download-url="{!! wzRoute('export:download', ['filename' => "{$pageItem->title}.json"]) !!}">
@@ -51,7 +51,7 @@
 <script>
     $(function () {
 
-    @if($pageItem->type == \App\Repositories\Document::TYPE_DOC)
+    @if($pageItem->type == \App\Models\Document::TYPE_DOC)
         // PDF 导出
         $('.wz-export-pdf').on('click', function (e) {
             e.preventDefault();
@@ -85,7 +85,7 @@
         });
     @endif
 
-    @if($pageItem->type == \App\Repositories\Document::TYPE_SWAGGER)
+    @if($pageItem->type == \App\Models\Document::TYPE_SWAGGER)
         $('.wz-export-swagger').on('click', function (e) {
             e.preventDefault();
 

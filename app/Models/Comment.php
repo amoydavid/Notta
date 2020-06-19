@@ -6,7 +6,7 @@
  * @copyright 管宜尧 <mylxsw@aicode.cc>
  */
 
-namespace App\Repositories;
+namespace App\Models;
 
 
 use Carbon\Carbon;
@@ -24,25 +24,25 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon  $updated_at
  * @property Carbon  $deleted_at
  * @package App\Repositories
- * @property-read \App\Repositories\Document $document
- * @property-read \App\Repositories\Comment $replyComment
- * @property-read \App\Repositories\User $user
+ * @property-read \App\Models\Document $document
+ * @property-read \App\Models\Comment $replyComment
+ * @property-read \App\Models\User $user
  * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Query\Builder|\App\Repositories\Comment onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Comment onlyTrashed()
  * @method static bool|null restore()
- * @method static \Illuminate\Database\Query\Builder|\App\Repositories\Comment withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Repositories\Comment withoutTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Comment withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Comment withoutTrashed()
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Comment whereContent($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Comment whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Comment whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Comment whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Comment wherePageId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Comment whereReplyToId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Comment whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Comment whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Comment whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Comment whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Comment whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Comment whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Comment wherePageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Comment whereReplyToId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Comment whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Comment whereUserId($value)
  */
-class Comment extends Repository
+class Comment extends BaseModel
 {
     use SoftDeletes;
 

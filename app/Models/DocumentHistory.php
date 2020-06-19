@@ -6,7 +6,7 @@
  * @copyright 管宜尧 <mylxsw@aicode.cc>
  */
 
-namespace App\Repositories;
+namespace App\Models;
 
 use Carbon\Carbon;
 
@@ -30,24 +30,24 @@ use Carbon\Carbon;
  * @property string                      $created_at
  * @property string                      $updated_at
  * @package App\Repositories
- * @property-read \App\Repositories\User $operator
- * @property-read \App\Repositories\User $user
+ * @property-read \App\Models\User $operator
+ * @property-read \App\Models\User $user
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory whereContent($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory whereOperatorId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory wherePageId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory wherePid($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory whereProjectId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\DocumentHistory whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory whereOperatorId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory wherePageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory wherePid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory whereProjectId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DocumentHistory whereUserId($value)
  */
-class DocumentHistory extends Repository
+class DocumentHistory extends BaseModel
 {
     protected $table = 'page_histories';
     protected $fillable

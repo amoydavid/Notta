@@ -10,9 +10,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Repositories\Attachment;
-use App\Repositories\Document;
-use App\Repositories\Project;
+use App\Models\Attachment;
+use App\Models\Document;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
 

@@ -6,12 +6,12 @@
  * @copyright 管宜尧 <mylxsw@aicode.cc>
  */
 
-namespace App\Repositories;
+namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
 
-abstract class Repository extends Model
+abstract class BaseModel extends Model
 {
 
 }

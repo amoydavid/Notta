@@ -9,12 +9,12 @@
 namespace App\Http\Controllers;
 
 
-use App\Repositories\Catalog;
-use App\Repositories\Comment;
-use App\Repositories\Document;
-use App\Repositories\Group;
-use App\Repositories\Project;
-use App\Repositories\User;
+use App\Models\Catalog;
+use App\Models\Comment;
+use App\Models\Document;
+use App\Models\Group;
+use App\Models\Project;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

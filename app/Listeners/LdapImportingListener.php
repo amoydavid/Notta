@@ -10,7 +10,7 @@ namespace App\Listeners;
 
 
 use Adldap\Laravel\Events\Importing;
-use App\Repositories\User;
+use App\Models\User;
 
 /**
  * LDAP用户导入事件监听（本地数据库没有该用户）

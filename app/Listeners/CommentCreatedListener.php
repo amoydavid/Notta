@@ -12,9 +12,9 @@ use App\Events\CommentCreated;
 use App\Notifications\CommentMentioned;
 use App\Notifications\CommentReplied;
 use App\Notifications\DocumentCommented;
-use App\Repositories\Comment;
-use App\Repositories\OperationLogs;
-use App\Repositories\User;
+use App\Models\Comment;
+use App\Models\OperationLogs;
+use App\Models\User;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

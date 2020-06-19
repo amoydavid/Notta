@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Repositories\Widget;
+use App\Models\Widget;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

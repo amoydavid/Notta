@@ -9,8 +9,8 @@
 namespace App\Http\Controllers;
 
 
-use App\Repositories\Document;
-use App\Repositories\Project;
+use App\Models\Document;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 /**

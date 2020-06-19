@@ -6,7 +6,7 @@
  * @copyright 管宜尧 <mylxsw@aicode.cc>
  */
 
-namespace App\Repositories;
+namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,17 +14,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * App\Repositories\Project
  *
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Attachment[] $attachments
- * @property-read \App\Repositories\Catalog $catalog
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\User[] $favoriteUsers
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Group[] $groups
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Repositories\Document[] $pages
- * @property-read \App\Repositories\User $user
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Attachment[] $attachments
+ * @property-read \App\Models\Catalog $catalog
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $favoriteUsers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Group[] $groups
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Document[] $pages
+ * @property-read \App\Models\User $user
  * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Query\Builder|\App\Repositories\Project onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Project onlyTrashed()
  * @method static bool|null restore()
- * @method static \Illuminate\Database\Query\Builder|\App\Repositories\Project withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Repositories\Project withoutTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Project withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Project withoutTrashed()
  * @mixin \Eloquent
  * @property int $id
  * @property string $name 项目名称
@@ -36,18 +36,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Carbon\Carbon|null $deleted_at
  * @property int $sort_level 项目排序，排序值越大越靠后
  * @property int|null $catalog_id 目录ID
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Project whereCatalogId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Project whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Project whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Project whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Project whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Project whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Project whereSortLevel($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Project whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Project whereUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Repositories\Project whereVisibility($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereCatalogId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereSortLevel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereVisibility($value)
  */
-class Project extends Repository
+class Project extends BaseModel
 {
 
     use SoftDeletes;

@@ -94,7 +94,7 @@
                             <input type="radio" name="template" value="{{ $temp['id'] }}"
                                    data-content="{{ base64_encode($temp['content']) }}" {{ $temp['default'] ? 'checked' : '' }}>
                             {{ $temp['name'] }}
-                            @if($temp['scope'] == \App\Repositories\Template::SCOPE_PRIVATE)
+                            @if($temp['scope'] == \App\Models\Template::SCOPE_PRIVATE)
                                 【@lang('project.privilege_private')】
                             @endif
                         </label>

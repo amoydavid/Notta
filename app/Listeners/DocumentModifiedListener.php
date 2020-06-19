@@ -10,9 +10,9 @@ namespace App\Listeners;
 
 use App\Events\DocumentModified;
 use App\Notifications\DocumentUpdated;
-use App\Repositories\DocumentHistory;
-use App\Repositories\OperationLogs;
-use App\Repositories\User;
+use App\Models\DocumentHistory;
+use App\Models\OperationLogs;
+use App\Models\User;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

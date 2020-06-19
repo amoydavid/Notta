@@ -46,7 +46,7 @@ return [
     |
     */
 
-    'model' => \App\Repositories\User::class,
+    'model' => \App\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------

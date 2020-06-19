@@ -32,11 +32,11 @@
                         <label for="project-visibility" class="bmd-label-floating">@lang('project.privilege')：</label>
                         <div class="radio mt-2">
                             <label class="radio-inline">
-                                <input type="radio" name="visibility" id="project-visibility" value="{{ \App\Repositories\Project::VISIBILITY_PUBLIC }}" checked>
+                                <input type="radio" name="visibility" id="project-visibility" value="{{ \App\Models\Project::VISIBILITY_PUBLIC }}" checked>
                                 @lang('project.privilege_public')
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="visibility" value="{{ \App\Repositories\Project::VISIBILITY_PRIVATE }}">
+                                <input type="radio" name="visibility" value="{{ \App\Models\Project::VISIBILITY_PRIVATE }}">
                                 @lang('project.privilege_private')
                             </label>
                         </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @package App\Repositories
  */
-class Widget extends Repository
+class Widget extends BaseModel
 {
     use SoftDeletes;
 

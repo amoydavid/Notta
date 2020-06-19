@@ -9,9 +9,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Repositories\Catalog;
-use App\Repositories\OperationLogs;
-use App\Repositories\Project;
+use App\Models\Catalog;
+use App\Models\OperationLogs;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class OperationLogController extends Controller

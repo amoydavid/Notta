@@ -9,8 +9,8 @@
 namespace App\Listeners;
 
 use App\Events\ProjectCreated;
-use App\Repositories\OperationLogs;
-use App\Repositories\User;
+use App\Models\OperationLogs;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;

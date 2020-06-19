@@ -8,7 +8,7 @@
 
 namespace App\Notifications;
 
-use App\Repositories\Document;
+use App\Models\Document;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;

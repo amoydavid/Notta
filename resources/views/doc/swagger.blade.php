@@ -45,13 +45,13 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body wz-swagger-template">
-                    @foreach(wzTemplates(\App\Repositories\Template::TYPE_SWAGGER) as $temp)
+                    @foreach(wzTemplates(\App\Models\Template::TYPE_SWAGGER) as $temp)
                         <div class="radio">
                             <label>
                                 <input type="radio" name="template" value="{{ $temp['id'] }}"
                                        data-content="{{ base64_encode($temp['content']) }}" {{ $temp['default'] ? 'checked' : '' }}>
                                 <span title="{{ $temp['description'] }}"> {{ $temp['name'] }}</span>
-                                @if($temp['scope'] == \App\Repositories\Template::SCOPE_PRIVATE)
+                                @if($temp['scope'] == \App\Models\Template::SCOPE_PRIVATE)
                                     <span class="glyphicon glyphicon-eye-close" title="@lang('project.privilege_private')"></span>
                                 @endif
                             </label>

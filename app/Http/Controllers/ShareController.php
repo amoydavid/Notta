@@ -9,9 +9,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Repositories\Document;
-use App\Repositories\PageShare;
-use App\Repositories\Project;
+use App\Models\Document;
+use App\Models\PageShare;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
 

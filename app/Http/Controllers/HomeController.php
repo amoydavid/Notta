@@ -8,9 +8,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Catalog;
-use App\Repositories\Project;
-use App\Repositories\Tag;
+use App\Models\Catalog;
+use App\Models\Project;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;

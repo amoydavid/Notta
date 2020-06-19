@@ -10,7 +10,7 @@ namespace App\Http\Controllers\Auth;
 
 
 use App\Mail\UserActivate;
-use App\Repositories\User;
+use App\Models\User;
 
 trait UserActivateChannel
 {

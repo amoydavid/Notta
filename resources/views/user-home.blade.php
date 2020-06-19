@@ -13,7 +13,7 @@
                 @foreach($projects ?? [] as $proj)
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                         <a class="wz-box wz-box-project" href="{{ wzRoute('project:home', ['id'=> $proj->id]) }}" >
-                            @if($proj->visibility == \App\Repositories\Project::VISIBILITY_PRIVATE)
+                            @if($proj->visibility == \App\Models\Project::VISIBILITY_PRIVATE)
                                 <span title="@lang('project.privilege_private')" class="wz-box-tag fa fa-eye-slash"></span>
                             @endif
                             <p class="wz-title" title="{{ $proj->name }}【排序：{{ $proj->sort_level }}】">{{ $proj->name }}</p>

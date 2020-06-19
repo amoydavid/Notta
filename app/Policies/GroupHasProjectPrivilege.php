@@ -9,8 +9,8 @@
 namespace App\Policies;
 
 
-use App\Repositories\Project;
-use App\Repositories\User;
+use App\Models\Project;
+use App\Models\User;
 
 trait GroupHasProjectPrivilege
 {

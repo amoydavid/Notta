@@ -8,9 +8,9 @@
 
 namespace App\Policies;
 
-use App\Repositories\Project;
-use App\Repositories\Template;
-use App\Repositories\User;
+use App\Models\Project;
+use App\Models\Template;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 /**
