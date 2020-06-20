@@ -13,10 +13,12 @@ use App\Exceptions\ValidationException;
 use App\Http\Controllers\Auth\UserActivateChannel;
 use App\Models\Group;
 use App\Models\Project;
+use App\Models\SocialAccount;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -362,5 +364,44 @@ class UserController extends Controller
             })->sortBy(function ($item) {
                 return $item['catalog_id'] ?? 0;
             })->values();
+    }
+
+    /**
+     * 企业微信授权
+     * @param Request $request
+     */
+    public function workAuth(Request $request)
+    {
+        $SocialAccount = SocialAccount::query()->where(['user_id'=>auth()->id(), 'provider'=>SocialAccount::PROVIDER_WX_WORK])->first();
+        if($SocialAccount) {
+            return redirect(route('user:basic'));
+        }
+        $code = $request->get('code');
+        if($code) {
+            try{
+                $work = \EasyWeChat::work();
+                $user = $work->oauth->detailed()->user();
+                $userInfo = $work->user->get($user->getId());
+                $SocialAccount = new SocialAccount();
+                $SocialAccount->user_id = auth()->id();
+                $SocialAccount->provider = SocialAccount::PROVIDER_WX_WORK;
+                $SocialAccount->provider_id = $user->getId();
+                $SocialAccount->token = Str::random(32);
+                $SocialAccount->avatar = $userInfo->get('avatar');
+                if($SocialAccount->save()) {
+                    return redirect(route('user:basic'));
+                } else {
+                    echo "保存用户信息出错";
+                    exit();
+                }
+            }catch (\Throwable $e) {
+                dd($e->getMessage());
+            }
+        }
+        $state = 'web_sync';
+        $request->session()->put('state', $state);
+        $callbackUrl = route('user:auth.work'); // 需设置可信域名
+        $url = 'https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid='.config('wechat.work.default.corp_id').'&agentid='.config('wechat.work.default.agent_id').'&redirect_uri='.urlencode($callbackUrl).'&state='.$state;
+        return response()->redirectTo($url);
     }
 }

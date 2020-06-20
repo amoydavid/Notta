@@ -41,6 +41,10 @@
             @lang('common.login')
         </button>
 
+        <a class="btn btn-link" href="{{ wzRoute('user:wework.login') }}">
+            企业微信登录
+        </a>
+
         @if (!ldap_enabled())
             <a class="btn btn-link" href="{{ wzRoute('register') }}">
                 @lang('common.register')

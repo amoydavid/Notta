@@ -18,6 +18,7 @@
 */
 
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'locale'], function() {
@@ -36,6 +37,8 @@ Route::group(['middleware' => 'locale'], function() {
         Route::get('/project/{id}', 'ProjectController@project')->name('project:home');
         // 设置语言
         Route::get('/locale', 'HomeController@lang')->name('locale');
+
+        Route::get('/wework-login', 'Auth\LoginController@WeWorkLogin')->name('user:wework.login');
 
         // 分享页面
         Route::get('/s/{hash}', 'ShareController@page')->name('share:show');
@@ -157,6 +160,8 @@ Route::group(['middleware' => 'locale'], function() {
 
                 // 用户可写的项目列表
                 Route::get('/writable-projects', 'UserController@projectsCanWrite');
+
+                Route::get('/auth-work', [UserController::class, 'workAuth'])->name('auth.work');
             });
 
             Route::group(['prefix' => 'project', 'as' => 'project:'], function () {

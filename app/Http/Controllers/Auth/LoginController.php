@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\SocialAccount;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
@@ -56,5 +58,30 @@ class LoginController extends Controller
 
             throw ValidationException::withMessages(['email' => '用户已禁用']);
         }
+    }
+
+    public function WeWorkLogin(Request $request)
+    {
+        $code = $request->get('code');
+        if($code) {
+            try{
+                $work = \EasyWeChat::work();
+                $user = $work->oauth->detailed()->user();
+                $userId = $user->getId();
+                $SocialAccount = SocialAccount::initWeWork($userId);
+                if($SocialAccount) {
+                    $this->guard()->login($SocialAccount->user, false);
+                    return $this->sendLoginResponse($request);
+                }
+            }catch (\Throwable $e) {
+                dd($e->getMessage());
+            }
+        }
+
+        $state = 'web_login';
+        $request->session()->put('state', $state);
+        $callbackUrl = route('user:wework.login'); // 需设置可信域名
+        $url = 'https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid='.config('wechat.work.default.corp_id').'&agentid='.config('wechat.work.default.agent_id').'&redirect_uri='.urlencode($callbackUrl).'&state='.$state;
+        return response()->redirectTo($url);
     }
 }
