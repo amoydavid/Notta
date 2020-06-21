@@ -503,6 +503,16 @@ function ldap_enabled(): bool
     return $enabled;
 }
 
+
+function wework_enabled(): bool
+{
+    static $enabled = null;
+    if (is_null($enabled)) {
+        $enabled = (bool)config('wizard.wx_work.enabled');
+    }
+    return $enabled;
+}
+
 /**
  * 站长统计代码区域
  *

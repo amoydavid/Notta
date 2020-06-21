@@ -62,6 +62,9 @@ class LoginController extends Controller
 
     public function WeWorkLogin(Request $request)
     {
+        if(!wework_enabled()) {
+            return redirect('/login');
+        }
         $code = $request->get('code');
         if($code) {
             try{
@@ -83,5 +86,18 @@ class LoginController extends Controller
         $callbackUrl = route('user:wework.login'); // 需设置可信域名
         $url = 'https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid='.config('wechat.work.default.corp_id').'&agentid='.config('wechat.work.default.agent_id').'&redirect_uri='.urlencode($callbackUrl).'&state='.$state;
         return response()->redirectTo($url);
+    }
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm(Request $request)
+    {
+        if(wework_enabled()) {
+            return redirect(route('user:wework.login'));
+        }
+        return view('auth.login');
     }
 }

@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label for="editor-username" class="bmd-label-floating">@lang('common.username')</label>
                     <input type="text" class="form-control" value="{{ $user->name }}" id="editor-username"
-                           name="username" {{ ldap_enabled() ? 'readonly' : '' }}>
+                           name="username" {{ (ldap_enabled() || wework_enabled()) ? 'readonly' : '' }}>
                 </div>
 
                 @if (ldap_enabled())
@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit"
-                                class="btn btn-success btn-raised" {{ ldap_enabled() ? 'disabled' : '' }}>@lang('common.btn_save')</button>
+                                class="btn btn-success btn-raised" {{ (ldap_enabled() || wework_enabled()) ? 'disabled' : '' }}>@lang('common.btn_save')</button>
                     </div>
                 </div>
             </form>

@@ -14,6 +14,7 @@ use App\Models\Group;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class GroupController extends Controller
@@ -135,7 +136,7 @@ class GroupController extends Controller
         $this->validate(
             $request,
             [
-                'name' => 'required|unique:wz_groups,name',
+                'name' => 'required|unique:groups,name',
             ],
             [
                 'name.required' => '分组名称不能为空',
@@ -240,7 +241,7 @@ class GroupController extends Controller
 
         $projectIds = [];
         foreach ($projects as $pro) {
-            if (starts_with($pro, '#')) {
+            if (Str::startsWith($pro, '#')) {
                 /** @var Catalog $catalog */
                 $catalog = Catalog::where('id', trim($pro, '#'))->firstOrFail();
                 foreach ($catalog->projects()->pluck('id')->toArray() as $projectId) {

@@ -14,7 +14,7 @@ return [
     /**
      * 版本检查
      */
-    'version-check'        => env('WIZARD_VERSION_CHECK', true),
+    'version-check'        => env('WIZARD_VERSION_CHECK', false),
     /**
      * 新注册账号是否需要邮箱激活
      */
@@ -56,6 +56,13 @@ return [
      * 是否必须登录才能查看文档
      */
     'must_login'           => env('WIZARD_MUST_LOGIN', false),
+
+    /**
+     * 企业微信
+     */
+    'wx_work' => [
+        'enabled' => env('WECHAT_WORK_ENABLED', false)
+    ],
 
     /**
      * CDN 加速

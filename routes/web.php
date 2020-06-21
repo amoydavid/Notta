@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'locale'], function() {
     // 如果启用 LDAP ，则不允许用户注册和重置密码
-    $ldapDisabled = !ldap_enabled();
+    $ldapDisabled = !ldap_enabled() && !wework_enabled();
     Auth::routes([
         'reset' => $ldapDisabled,
         'verify' => $ldapDisabled,

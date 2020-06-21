@@ -11,7 +11,7 @@
                 <a class="nav-link {{ $op == 'basic' ? 'active':'' }}" href="{{ wzRoute('user:basic') }}">
                     <i class="fa fa-user mr-2"></i> @lang('common.user_info')
                 </a>
-                @if (!ldap_enabled())
+                @if (!ldap_enabled() && !wework_enabled())
                     <a class="nav-link {{ $op == 'password' ? 'active':'' }}" href="{{ wzRoute('user:password') }}">
                         <i class="fa fa-lock mr-2"></i> @lang('common.change_password')
                     </a>

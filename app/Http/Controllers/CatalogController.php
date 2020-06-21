@@ -52,7 +52,7 @@ class CatalogController extends Controller
         $this->validate(
             $request,
             [
-                'name'         => 'required|unique:wz_project_catalogs,name',
+                'name'         => 'required|unique:project_catalogs,name',
                 'sort_level'   => 'required|integer|between:-999999999,999999999',
                 'show_in_home' => 'boolean',
             ],

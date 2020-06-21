@@ -45,7 +45,7 @@
             企业微信登录
         </a>
 
-        @if (!ldap_enabled())
+        @if (!ldap_enabled() && !wework_enabled())
             <a class="btn btn-link" href="{{ wzRoute('register') }}">
                 @lang('common.register')
             </a>
