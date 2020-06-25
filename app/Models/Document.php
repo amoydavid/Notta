@@ -69,6 +69,7 @@ class Document extends BaseModel
     const TYPE_DOC     = 1;
     const TYPE_SWAGGER = 2;
     const TYPE_TABLE   = 3;
+    const TYPE_VDITOR_DOC   = 4; //使用 vditor 创建的 markdown
 
     protected $table = 'pages';
     protected $fillable

@@ -45,6 +45,7 @@ function documentType($type): string
         Document::TYPE_DOC     => 'markdown',
         Document::TYPE_SWAGGER => 'swagger',
         Document::TYPE_TABLE   => 'table',
+        Document::TYPE_VDITOR_DOC   => 'markdown',
     ];
 
     return $types[$type] ?? '';

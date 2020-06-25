@@ -22,7 +22,7 @@
                             <i class="material-icons" data-toggle="tooltip" title="创建文档">add_to_photos</i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="new-document" style="min-width: 13rem;">
-                            <a href="{!! wzRoute('project:doc:new:show', ['id' => $project->id, 'pid' => $pageID]) !!}" class="dropdown-item">
+                            <a href="{!! route('project:doc:new:show', ['id' => $project->id, 'type'=> 'vditor', 'pid' => $pageID]) !!}" class="dropdown-item">
                                 <i class="fa fa-book mr-2"></i> 创建 @lang('common.markdown')
                             </a>
                             <a href="{!! wzRoute('project:doc:new:show', ['id' => $project->id, 'type' => 'swagger', 'pid' => $pageID]) !!}" class="dropdown-item">

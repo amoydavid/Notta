@@ -31,6 +31,7 @@ class ProjectController extends Controller
         Document::TYPE_DOC     => 'markdown',
         Document::TYPE_SWAGGER => 'swagger',
         Document::TYPE_TABLE   => 'table',
+        Document::TYPE_VDITOR_DOC   => 'vditor',
     ];
 
     /**
