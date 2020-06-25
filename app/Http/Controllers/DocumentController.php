@@ -28,6 +28,7 @@ class DocumentController extends Controller
         Document::TYPE_DOC     => 'markdown',
         Document::TYPE_SWAGGER => 'swagger',
         Document::TYPE_TABLE   => 'table',
+        Document::TYPE_VDITOR_DOC   => 'vditor',
     ];
 
     /**
@@ -44,7 +45,7 @@ class DocumentController extends Controller
     {
         $this->validate(
             $request,
-            ['type' => 'in:swagger,markdown,table', 'pid' => 'integer|min:0']
+            ['type' => 'in:swagger,markdown,table,vditor', 'pid' => 'integer|min:0']
         );
 
         /** @var Project $project */
@@ -108,7 +109,7 @@ class DocumentController extends Controller
             [
                 'project_id' => "required|integer|min:1|in:{$id}|project_exist",
                 'title'      => 'required|between:1,255',
-                'type'       => 'required|in:markdown,swagger,table',
+                'type'       => 'required|in:markdown,swagger,table,vditor',
                 'pid'        => 'integer|min:0',
                 'sort_level' => 'integer',
                 'sync_url'   => 'nullable|url',

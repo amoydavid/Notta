@@ -73,7 +73,7 @@
                 </div>
             @endif
 
-            <div class="markdown-body wz-panel-limit {{ $type == 'markdown' ? 'wz-markdown-style-fix' : '' }}" id="markdown-body">
+            <div class="markdown-body wz-panel-limit {{ $type == 'markdown' ? 'wz-markdown-style-fix' : '' }} {{ $type == 'vditor' ? 'vditor-body' : '' }}" id="markdown-body">
                 @if($type === 'markdown')
                     <textarea class="d-none wz-markdown-content">{{ $pageItem->content }}</textarea>
                 @endif
@@ -83,7 +83,15 @@
                         <div id="x-spreadsheet"></div>
                     </div>
                 @endif
+                @if($type == 'vditor')
+                    <div id="vditor-preview"></div>
+                    <div id="outline"></div>
+                @endif
+
             </div>
+            @if($type == 'vditor')
+            <textarea id="vditor-content" style="display: none">{{$pageItem->content}}</textarea>
+            @endif
 
             <div class="text-center wz-panel-limit mt-3 wz-content-end">~ END ~</div>
 
