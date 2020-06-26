@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 use App\Events\ProjectCreated;
 use App\Events\ProjectDeleted;
 use App\Events\ProjectModified;
+use App\Models\InviteToken;
 use App\Policies\ProjectPolicy;
 use App\Models\Catalog;
 use App\Models\Document;
@@ -19,7 +20,6 @@ use App\Models\Group;
 use App\Models\OperationLogs;
 use App\Models\Project;
 use App\Models\DocumentHistory;
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
@@ -531,5 +531,15 @@ class ProjectController extends Controller
 
         return view('project.document-selector',
             ['navigator' => navigator($project_id, 0, $exclude)]);
+    }
+
+    public function generateInviteToken(Request $request, $project_id)
+    {
+        /** @var Project $project */
+        $project = Project::with('catalog')->findOrFail($project_id);
+
+        $model = InviteToken::buildToken(\Auth::user(), $project);
+
+        return $model->token;
     }
 }

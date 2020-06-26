@@ -220,6 +220,41 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\InviteToken
+ *
+ * @property int $id
+ * @property int $invite_uid 发起者
+ * @property string $token
+ * @property int $accept_uid 使用者
+ * @property string $resource_type 资源类型
+ * @property int $resource_id 资源id
+ * @property string|null $expired_at 有效期
+ * @property string|null $used_at 使用时间
+ * @property int $status 使用状态 0未用 1已用
+ * @property string|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereAcceptUid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereExpiredAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereInviteUid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereResourceId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereResourceType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\InviteToken whereUsedAt($value)
+ */
+	class InviteToken extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Repositories\Project
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Attachment[] $attachments

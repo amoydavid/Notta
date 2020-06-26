@@ -229,6 +229,8 @@ Route::group(['middleware' => 'locale'], function() {
                 // 跨项目移动文档
                 Route::post('/{project_id}/doc/{page_id}/move-to', 'DocumentController@move')->name('move');
                 Route::get('/{project_id}/doc-selector', 'ProjectController@documentSelector')->name('doc-selector');
+
+                Route::get('/{project_id}/invite', [\App\Http\Controllers\ProjectController::class, 'generateInviteToken'])->name('invite');
             });
 
             // 创建模板

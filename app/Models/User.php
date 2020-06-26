@@ -55,6 +55,10 @@ class User extends Authenticatable
      * 管理员用户
      */
     const ROLE_ADMIN = 2;
+    /**
+     * 外部用户
+     */
+    const ROLE_EXT = 3;
 
     const STATUS_NONE      = 0;
     const STATUS_ACTIVATED = 1;
