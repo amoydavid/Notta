@@ -42,10 +42,10 @@ class SocialAccount extends Model
                 'provider_id' => $userId,
                 'avatar'=>$avatar,
             ];
-            $account = \DB::transaction(function() use ($formData, $email, $realName, $mobile){
+            $account = \DB::transaction(function() use ($formData, $email, $userId, $mobile){
                 $needActivate = config('wizard.need_activate');
                 $user         = User::create([
-                    'name'     => $realName,
+                    'name'     => $userId,
                     'email'    => $email,
                     'password' => bcrypt($mobile),
                     'role'     => User::ROLE_NORMAL,
@@ -56,11 +56,6 @@ class SocialAccount extends Model
                 if ((int)$user->id === 1) {
                     $user->role = User::ROLE_ADMIN;
                     $user->save();
-                }
-
-                // 注册后发送激活邮件
-                if ($needActivate) {
-                    $this->sendUserActivateEmail($user);
                 }
 
                 event(new UserCreated($user));
