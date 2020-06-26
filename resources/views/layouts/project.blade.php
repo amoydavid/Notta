@@ -7,7 +7,7 @@
         <div class="col-12 wz-left-main-full">
             <a class="wz-left-main-switch btn"><i class="fa fa-angle-double-down"></i> </a>
         </div>
-        <div class="col-12 col-lg-3 wz-left-main">
+        <div class="col-12 col-lg-3 wz-left-main notta-project-nav">
             <div class="wz-project-title">
                 <a href="{{ wzRoute('project:home', ['id' => $project->id]) }}" class="wz-nav-item"
                     title="{{ $project->name }}">
@@ -16,7 +16,7 @@
                 @php
                 $hasEditPrivilege = !Auth::guest() && (Auth::user()->can('page-add', $project) || Auth::user()->can('project-edit', $project));
                 @endphp
-                <div class="dropdown pull-right" style="margin-right: 20px;" role="group">
+                <div class="dropdown pull-right" style="margin-right: 10px;" role="group">
                     @if($hasEditPrivilege)
                         <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="new-document" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="material-icons" data-toggle="tooltip" title="创建文档">add_to_photos</i>

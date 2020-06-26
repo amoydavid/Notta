@@ -157,6 +157,26 @@ a:hover {
     padding-left: 0;
 }
 
+.notta-project-nav {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.notta-project-nav .btn.bmd-btn-icon {
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    min-width: 1rem;
+}
+
+.notta-project-nav .btn.bmd-btn-icon .material-icons {
+    font-size: 0.85rem;
+    color: #8c8c8c;
+}
+
+
 .wz-project-title {
     padding-top: 20px;
     padding-left: 20px;
