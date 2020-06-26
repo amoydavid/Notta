@@ -21,6 +21,7 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::group(['middleware' => 'locale'], function() {
     // 如果启用 LDAP ，则不允许用户注册和重置密码
     $ldapDisabled = !ldap_enabled() && !wework_enabled();
@@ -122,7 +123,9 @@ Route::group(['middleware' => 'locale'], function() {
             // 个人首页
             Route::get('/home', 'ProjectController@home')->name('user:home');
             // 文件上传
-            Route::post('/upload', 'FileController@imageUpload')->name('upload');
+            Route::post('/upload', [\App\Http\Controllers\FileController::class, 'imageUpload'])->name('upload');
+            // 链接文件转存本地
+            Route::post('/fetch', [\App\Http\Controllers\FileController::class, 'imageFetch'])->name('fetch');
 
             // 思维导图
             Route::group(['prefix' => 'mind-mapping', 'as' => 'mind-mapping:'], function () {

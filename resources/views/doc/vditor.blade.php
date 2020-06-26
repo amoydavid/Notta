@@ -126,10 +126,28 @@
         },
         tab: '\t',
         upload: {
-          accept: 'image/*,.mp3, .wav, .rar',
-          token: 'test',
-          url: '/api/upload/editor',
-          linkToImgUrl: '/api/upload/fetch',
+          accept: 'image/*,.mp3',
+          headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+          },
+          // token: 'test',
+          url: "/upload",
+          linkToImgUrl: '/fetch',
+          format(files, responseText) {
+            const response = JSON.parse(responseText)
+            const succMap = {}
+            response.url.map(item => {
+              succMap[item.name] = item.url
+            })
+            return JSON.stringify({
+              "msg": "",
+              "code": 0,
+              "data": {
+                "errFiles": [],
+                "succMap": succMap
+              }
+            })
+          },
           filename (name) {
             return name.replace(/[^(a-zA-Z0-9\u4e00-\u9fa5\.)]/g, '').
             replace(/[\?\\/:|<>\*\[\]\(\)\$%\{\}@~]/g, '').
@@ -155,7 +173,7 @@
       };
 
       $.global.updateEditorContent = function (content) {
-        editor.setValue(content)
+        vditor.setValue(content)
       };
 
     </script>
