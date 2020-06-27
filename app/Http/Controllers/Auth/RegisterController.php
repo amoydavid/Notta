@@ -90,7 +90,7 @@ class RegisterController extends Controller
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
-            'role'     => $InviteToken?User::ROLE_EXT:User::ROLE_NORMAL,
+            'role'     => isset($InviteToken)?User::ROLE_EXT:User::ROLE_NORMAL,
             'status'   => $needActivate ? User::STATUS_NONE : User::STATUS_ACTIVATED,
         ]);
 
