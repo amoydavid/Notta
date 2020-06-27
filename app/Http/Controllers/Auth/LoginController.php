@@ -99,7 +99,7 @@ class LoginController extends Controller
         if(wework_enabled()) {
             $state = 'web_login';
             $request->session()->put('state', $state);
-            if($request->isMethod('GET')) {
+            if($request->isMethod('GET') && !$request->session()->get('errors')) {
                 $is_user_state = false;
             }
         }
