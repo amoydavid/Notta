@@ -122,10 +122,9 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         $token = request()->get('token');
-
-        if( (!ldap_enabled() && !wework_enabled() )|| !InviteToken::valid($token)) {
+        if( (!ldap_enabled() && !wework_enabled() ) || ($token && !InviteToken::valid($token))) {
             abort(403, '站点暂停注册');
         }
-        return view('auth.register');
+        return view('auth.register', ['token'=>$token]);
     }
 }

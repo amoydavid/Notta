@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\InviteToken;
 use App\Models\SocialAccount;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -39,7 +40,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except(['logout', 'showLoginForm']);
     }
 
     /**
@@ -57,6 +58,11 @@ class LoginController extends Controller
             $request->session()->invalidate();
 
             throw ValidationException::withMessages(['email' => '用户已禁用']);
+        }
+        $token = $request->get('token');
+        $InviteToken = InviteToken::valid($token);
+        if($InviteToken) {
+            $InviteToken->setUsed($user);
         }
     }
 
@@ -95,17 +101,27 @@ class LoginController extends Controller
      */
     public function showLoginForm(Request $request)
     {
+        $user = \Auth::user();
+        $token = $request->get('token');
+        if(!empty($user) && $token) {
+            $InviteToken = InviteToken::valid($token);
+            if($InviteToken) {
+                $InviteToken->setUsed($user);
+            }
+            return redirect(route('home'));
+        }
         $is_user_state = true;
         if(wework_enabled()) {
             $state = 'web_login';
             $request->session()->put('state', $state);
-            if($request->isMethod('GET') && !$request->session()->get('errors')) {
+            if($request->isMethod('GET') && !$request->session()->get('errors') && !$request->get('token')) {
                 $is_user_state = false;
             }
         }
 
         return view('auth.login', [
-            'is_user_state' => $is_user_state
+            'is_user_state' => $is_user_state,
+            'token' => $token,
         ]);
     }
 }

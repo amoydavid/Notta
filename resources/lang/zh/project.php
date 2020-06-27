@@ -11,6 +11,7 @@ return [
     'basic'                  => '基本信息',
     'setting'                => '配置',
     'project_name'           => '项目名称',
+    'share'                  => '分享设置',
     'description'            => '项目描述',
     'privilege'              => '项目权限',
     'advanced'               => '高级',

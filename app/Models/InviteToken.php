@@ -14,6 +14,11 @@ class InviteToken extends BaseModel
     ];
 
 
+    public function acceptUser()
+    {
+        return $this->belongsTo(User::class, 'accept_uid');
+    }
+
     /**
      * @param User $User
      * @param BaseModel $Object

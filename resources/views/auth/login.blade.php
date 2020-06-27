@@ -3,6 +3,7 @@
 @section('content')
     <div id="user-login" style="display: {{ $is_user_state?'block':'none' }};">
         <form class="form-signin" method="POST" action="{{ wzRoute('login') }}">
+            <input type="hidden" name="token" value="{{ request()->get('token') }}" />
             {{--<img class="mb-4" src="/assets/wizard.svg" alt="" height="100">--}}
             <h1 class="h3 mb-3 font-weight-normal">@lang('common.login')</h1>
             {{ csrf_field() }}
@@ -44,10 +45,13 @@
                 企业微信登录
             </button>
 
+            @if((!ldap_enabled() && !wework_enabled()) || $token)
+            <a class="btn btn-link" href="{{ wzRoute('register', ['token'=>$token]) }}">
+                @lang('common.register')
+            </a>
+            @endif
+
             @if (!ldap_enabled() && !wework_enabled())
-                <a class="btn btn-link" href="{{ wzRoute('register') }}">
-                    @lang('common.register')
-                </a>
 
                 <a class="btn btn-link" href="{{ wzRoute('password.request') }}">
                     @lang('common.password_back')?
@@ -57,7 +61,7 @@
 
         </form>
     </div>
-    @if(wework_enabled())
+    @if(wework_enabled() && !$token)
     <div id="wework-login" style="display: {{ !$is_user_state?'block':'none' }}">
         <div id="wx_reg">
         </div>

@@ -65,14 +65,14 @@ class HomeController extends Controller
         } else {
             if (empty($catalogId)) {
                 // 首页非外部用户默认只查询不属于任何目录的项目
-                //if(!empty($user) && $user->role != User::ROLE_EXT) {
+                if(!empty($user) && $user->role != User::ROLE_EXT) {
                     $projectModel->where(function($query) {
                         $query->whereNull('catalog_id')->orWhere('catalog_id', 0);
                     });
-                //}
+                }
                 // 查询项目目录
                 // 在分页查询的第一页之外，不展示目录
-                if ($page === 1) {
+                if ($page === 1 && (!empty($user) && $user->role != User::ROLE_EXT)) {
                     /** @var Collection $catalogs */
                     $catalogs = Catalog::withCount('projects')->where('show_in_home', Catalog::SHOW_IN_HOME)->orderBy('sort_level', 'ASC')->get();
                 }

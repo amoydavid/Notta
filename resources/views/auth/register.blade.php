@@ -51,7 +51,7 @@
            @lang('common.register')
         </button>
 
-        <a class="btn btn-link" href="{{ wzRoute('login') }}">
+        <a class="btn btn-link" href="{{ wzRoute('login', ['token'=>$token]) }}">
             已有账号，登录
         </a>
 

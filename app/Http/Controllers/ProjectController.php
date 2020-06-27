@@ -232,7 +232,7 @@ class ProjectController extends Controller
         $this->validate(
             $request,
             [
-                'op' => 'in:basic,privilege,advanced,sort'
+                'op' => 'in:basic,privilege,advanced,sort,share'
             ]
         );
 
@@ -265,6 +265,16 @@ class ProjectController extends Controller
                 }
                 break;
             case 'advanced':
+                break;
+            case 'share':
+                $query = InviteToken::query()->where(['resource_type'=>Project::class, 'resource_id'=>$project->id]);
+                $query->with('acceptUser');
+                $query->orderByDesc('id');
+                $pager = $query->paginate(20)->appends([
+                    'op'     => $op,
+                ]);
+
+                $viewData['pager'] = $pager;
                 break;
             case 'sort':
                 $viewData['navigators'] = navigator($id);
@@ -540,6 +550,6 @@ class ProjectController extends Controller
 
         $model = InviteToken::buildToken(\Auth::user(), $project);
 
-        return $model->token;
+        return redirect(route('project:setting:show', ['id'=>$project_id, 'op'=>'share']));
     }
 }
