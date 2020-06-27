@@ -1422,3 +1422,10 @@ pre.prettyprint *,
     background: #eaeaea;
     color: #545454;
 }
+.wz-top-nav-item.logo {
+    padding: 0;
+}
+.wz-top-nav-item.logo img {
+    width: 40px;
+    height: 40px;
+}

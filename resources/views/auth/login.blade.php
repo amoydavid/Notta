@@ -1,10 +1,12 @@
 @extends('layouts.login')
 @section('title', __('common.login'))
 @section('content')
+    <div>
+        <img class="mb-4" src="/assets/wizard.svg" alt="" height="50">
+    </div>
     <div id="user-login" style="display: {{ $is_user_state?'block':'none' }};">
         <form class="form-signin" method="POST" action="{{ wzRoute('login') }}">
             <input type="hidden" name="token" value="{{ request()->get('token') }}" />
-            {{--<img class="mb-4" src="/assets/wizard.svg" alt="" height="100">--}}
             <h1 class="h3 mb-3 font-weight-normal">@lang('common.login')</h1>
             {{ csrf_field() }}
             <div class="text-left form-group{{ $errors->has('email') ? ' has-error' : '' }}">

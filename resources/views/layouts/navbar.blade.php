@@ -1,6 +1,6 @@
 <div class="wz-top-navbar d-flex flex-column flex-md-row align-items-center px-md-4 bg-white border-bottom box-shadow ">
-    <h5 class="my-0 mr-md-auto font-weight-normal wz-top-nav-item">
-        <a href="/">{{ config('app.name', 'Wizard API') }}</a>
+    <h5 class="my-0 mr-md-auto font-weight-normal wz-top-nav-item logo">
+        <a href="/"><img src="/assets/wizard.svg" /></a>
     </h5>
     <div class="wz-top-nav-search ml-md-auto d-flex justify-content-end">
         <form action="{{ wzRoute('search:search') }}" method="get">
@@ -56,7 +56,6 @@
         </nav>
     @endif
 </div>
-
 @push('script')
     <script>
         $(function () {
