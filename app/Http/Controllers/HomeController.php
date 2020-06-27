@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use App\Models\Catalog;
 use App\Models\Project;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -54,6 +55,7 @@ class HomeController extends Controller
         // 2. $name空（普通展示），如果提供了目录id，则只查询目录下的项目，不展示目录列表
         // 3. $name空（普通展示），如果没有提供目录ID，且当前为第一页，则展示不属于任何目录的项目，并且展示目录列表
         // 如果分页不是第一页，则只展示不属于任何项目的目录，不展示目录列表
+        $user = \Auth::user();
 
         /** @var Project $projectModel */
         $projectModel = Project::query();
@@ -62,11 +64,12 @@ class HomeController extends Controller
             $projectModel->where('name', 'like', "%{$name}%");
         } else {
             if (empty($catalogId)) {
-                // 首页默认只查询不属于任何目录的项目
-                $projectModel->where(function($query) {
-                    $query->whereNull('catalog_id')->orWhere('catalog_id', 0);
-                });
-
+                // 首页非外部用户默认只查询不属于任何目录的项目
+                //if(!empty($user) && $user->role != User::ROLE_EXT) {
+                    $projectModel->where(function($query) {
+                        $query->whereNull('catalog_id')->orWhere('catalog_id', 0);
+                    });
+                //}
                 // 查询项目目录
                 // 在分页查询的第一页之外，不展示目录
                 if ($page === 1) {
@@ -79,7 +82,7 @@ class HomeController extends Controller
             }
         }
 
-        $user = \Auth::user();
+
         if (!empty($user) && $user->isAdmin() && config('wizard.admin_see_all')) {
             /** @var LengthAwarePaginator $projects */
             $projects = $projectModel->orderBy('sort_level', 'ASC')->paginate($perPage);
@@ -95,10 +98,20 @@ class HomeController extends Controller
                             });
                     })->orWhere('user_id', $user->id);
                 }
+
+                if(!empty($user)) {
+                    $query->orWhere(function($query) use($user) {
+                        $query->whereIn('id', function($query) use($user){
+                            $query->select('resource_id')->from('permission_assignments')
+                                ->where(['resource_type'=>(Project::class), 'user_type'=> (User::class), 'user_id'=>$user->id]);
+                        });
+                    });
+                }
             });
 
             /** @var LengthAwarePaginator $projects */
             $projects = $projectModel->orderBy('sort_level', 'ASC')->paginate($perPage);
+            //dd($projects->total());
         }
 
         // 当前用户关注的项目

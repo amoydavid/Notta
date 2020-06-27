@@ -95,9 +95,17 @@ class LoginController extends Controller
      */
     public function showLoginForm(Request $request)
     {
+        $is_user_state = true;
         if(wework_enabled()) {
-            return redirect(route('user:wework.login'));
+            $state = 'web_login';
+            $request->session()->put('state', $state);
+            if($request->isMethod('GET')) {
+                $is_user_state = false;
+            }
         }
-        return view('auth.login');
+
+        return view('auth.login', [
+            'is_user_state' => $is_user_state
+        ]);
     }
 }
