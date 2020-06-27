@@ -9,6 +9,7 @@
 namespace App\Policies;
 
 use App\Models\Group;
+use App\Models\PermissionAssignment;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -60,7 +61,9 @@ class ProjectPolicy
 
         return $user->isAdmin()
             || $this->isOwner($user, $project)
-            || $this->groupHasProjectPrivilege($project, $user, Project::PRIVILEGE_RO);
+            || $this->groupHasProjectPrivilege($project, $user, Project::PRIVILEGE_RO)
+            || $this->hasReadPermission($user, $project)
+            ;
     }
 
     /**
@@ -80,6 +83,13 @@ class ProjectPolicy
         }
 
         if (empty($user)) {
+            return false;
+        }
+
+        /**
+         * 第三方用户不可评论
+         */
+        if($user->role == User::ROLE_EXT) {
             return false;
         }
 
@@ -208,5 +218,22 @@ class ProjectPolicy
         }
 
         return $project;
+    }
+
+
+    /**
+     * 是否可读项目
+     * @param User $user
+     * @param Project $project
+     * @return bool
+     */
+    private function hasReadPermission($user, $project)
+    {
+        if (empty($user) || !$user->isActivated()) {
+            return false;
+        }
+        $project = $this->getProject($project);
+
+        return PermissionAssignment::valid($user, $project);
     }
 }

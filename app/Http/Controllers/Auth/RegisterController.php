@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Events\UserCreated;
+use App\Models\InviteToken;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class RegisterController extends Controller
 {
@@ -49,11 +53,19 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $validator = Validator::make($data, [
             'name'     => 'required|string|max:255',
             'email'    => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
+        $validator->after(function ($validator) use ($data) {
+            $token = $data['token']??false;
+            if ($token && !InviteToken::valid($token)) {
+                $validator->errors()->add('token', '邀请码不正确或已过期');
+            }
+        });
+
+        return $validator;
     }
 
     /**
@@ -66,11 +78,19 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $needActivate = config('wizard.need_activate');
+        $token = $data['token']??false;
+        if($token!==false) {
+            $InviteToken = InviteToken::valid($token);
+            if(!$InviteToken) {
+                throw new AccessDeniedHttpException('邀请码不正确');
+            }
+        }
+
         $user         = User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
-            'role'     => User::ROLE_NORMAL,
+            'role'     => $InviteToken?User::ROLE_EXT:User::ROLE_NORMAL,
             'status'   => $needActivate ? User::STATUS_NONE : User::STATUS_ACTIVATED,
         ]);
 
@@ -78,6 +98,10 @@ class RegisterController extends Controller
         if ((int)$user->id === 1) {
             $user->role = User::ROLE_ADMIN;
             $user->save();
+        }
+
+        if(isset($InviteToken)) {
+            $InviteToken->setUsed($user);
         }
 
         // 注册后发送激活邮件
@@ -90,4 +114,18 @@ class RegisterController extends Controller
         return $user;
     }
 
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $token = request()->get('token');
+
+        if( (!ldap_enabled() && !wework_enabled() )|| !InviteToken::valid($token)) {
+            abort(403, '站点暂停注册');
+        }
+        return view('auth.register');
+    }
 }

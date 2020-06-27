@@ -3,6 +3,7 @@
 @section('content')
 
     <form class="form-signin" method="POST" action="{{ wzRoute('register') }}">
+        <input type="hidden" name="token" value="{{ request()->get('token') }}"/>
         {{--<img class="mb-4" src="/assets/wizard.svg" alt="" height="100">--}}
         <h1 class="h3 mb-3 font-weight-normal">@lang('common.register')</h1>
 

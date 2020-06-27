@@ -28,7 +28,7 @@ Route::group(['middleware' => 'locale'], function() {
     Auth::routes([
         'reset' => $ldapDisabled,
         'verify' => $ldapDisabled,
-        'register' => $ldapDisabled,
+        'register' => true,
     ]);
 
     Route::group(['middleware' => 'global-auth'], function() {
