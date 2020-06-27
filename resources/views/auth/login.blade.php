@@ -43,9 +43,11 @@
                 @lang('common.login')
             </button>
 
+            @if( wework_enabled() )
             <button type="button" class="btn btn-lg btn-info btn-block btn-raised switch-login-btn">
                 企业微信登录
             </button>
+            @endif
 
             @if((!ldap_enabled() && !wework_enabled()) || $token)
             <a class="btn btn-link" href="{{ wzRoute('register', ['token'=>$token]) }}">
