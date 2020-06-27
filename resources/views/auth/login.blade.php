@@ -57,9 +57,9 @@
 
         </form>
     </div>
+    @if(wework_enabled())
     <div id="wework-login" style="display: {{ !$is_user_state?'block':'none' }}">
         <div id="wx_reg">
-
         </div>
         <div style="margin: 30px 40px;">
             <button type="button" class="btn btn-lg btn-primary btn-block btn-raised switch-login-btn">
@@ -67,6 +67,7 @@
             </button>
         </div>
     </div>
+    @endif
     <div>
         <p class="mt-5 mb-3 text-muted">&copy; {{ date('Y') }} {{ config('wizard.copyright', 'Notta') }}</p>
     </div>
