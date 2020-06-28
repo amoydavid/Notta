@@ -41,7 +41,7 @@ class ShareController extends Controller
         ])->findOrFail($projectId);
 
         $page = Document::where('project_id', $projectId)->where('id', $pageId)->firstOrFail();
-        $type = $page->type == Document::TYPE_DOC ? 'markdown' : 'swagger';
+        $type = Document::TYPES[$page->type] ?? 'markdown';
 
         return view('share-show', [
             'project'  => $project,

@@ -19,12 +19,7 @@ use Illuminate\Http\Request;
 
 class HistoryController extends Controller
 {
-    protected $types = [
-        Document::TYPE_DOC     => 'markdown',
-        Document::TYPE_SWAGGER => 'swagger',
-        Document::TYPE_TABLE   => 'table',
-        Document::TYPE_VDITOR_DOC   => 'vditor',
-    ];
+    protected $types = Document::TYPES;
 
     /**
      * 文档编辑历史

@@ -27,12 +27,7 @@ use Symfony\Component\Translation\Exception\NotFoundResourceException;
 
 class ProjectController extends Controller
 {
-    protected $types = [
-        Document::TYPE_DOC     => 'markdown',
-        Document::TYPE_SWAGGER => 'swagger',
-        Document::TYPE_TABLE   => 'table',
-        Document::TYPE_VDITOR_DOC   => 'vditor',
-    ];
+    protected $types = Document::TYPES;
 
     /**
      * 用户个人首页（个人项目列表）

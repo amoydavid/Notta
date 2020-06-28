@@ -91,6 +91,13 @@ class Document extends BaseModel
 
     public $dates = ['deleted_at'];
 
+    public const TYPES = [
+        Document::TYPE_DOC     => 'markdown',
+        Document::TYPE_SWAGGER => 'swagger',
+        Document::TYPE_TABLE   => 'table',
+        Document::TYPE_VDITOR_DOC   => 'vditor',
+    ];
+
     /**
      * 文档恢复
      *
