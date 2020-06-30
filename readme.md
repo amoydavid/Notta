@@ -210,6 +210,11 @@ composer 会在在项目目录中创建 **vendor** 目录，其中包含了项�
 
    最简单的办法是可以通过查看错误日志来排查问题，日志文件在 `storage/logs/` 目录。如果不够直观，可以在 `.env` 配置文件中修改 `APP_DEBUG=true` 来启用调试模式，在访问页面就会展示具体报错信息了。在 Docker 环境中，可以在启动命令中添加 `-e APP_DEBUG=true` 来启用 DEBUG 模式。
 
+## 关于
+
+如果你觉得这个工具能解决你的实际问题，可以赞赏我一下。
+
+<img width="300px" src="https://static01.imgkr.com/temp/bd3aed01e31a4965ae09247bec2cd0e5.png">
 
 ## Stargazers over time
 
