@@ -51,7 +51,7 @@ class ExportController extends Controller
 
         $mpdf = new Mpdf([
             'mode'             => 'utf-8',
-            'tempDir'          => sys_get_temp_dir(),
+            'tempDir'          => sys_get_temp_dir() . '/notta/',
             'useSubstitutions' => true,
             'backupSubsFont'   => ['dejavusanscondensed', 'arialunicodems', 'sun-exta'],
         ]);

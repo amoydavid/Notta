@@ -56,7 +56,7 @@ class BatchExportController extends Controller
 
         /** @var Collection $documents */
         $documents  = $project->pages;
-        $navigators = navigatorSort(navigator($project_id, 0));
+        $navigators = navigator($project_id, 0);
 
         if ($pid !== 0) {
             $navigators = $this->filterNavigators($navigators, function (array $nav) use ($pid) {
@@ -120,6 +120,7 @@ class BatchExportController extends Controller
 
                 switch ($doc->type) {
                     case Document::TYPE_DOC:
+                    case Document::TYPE_VDITOR_DOC:
                         $ext     = 'md';
                         $content = $doc->content;
                         break;
@@ -169,7 +170,7 @@ class BatchExportController extends Controller
 
         $mpdf = new Mpdf([
             'mode'              => 'utf-8',
-            'tempDir'           => sys_get_temp_dir(),
+            'tempDir'           => sys_get_temp_dir() . '/notta/',
             'defaultfooterline' => false,
             'useSubstitutions'  => true,
             'backupSubsFont'    => ['dejavusanscondensed', 'arialunicodems', 'sun-exta'],
@@ -214,7 +215,7 @@ class BatchExportController extends Controller
                 $intro =
                     "该文档由 {$author} 创建于 {$createdTime} ， {$lastModifiedUser} 在 {$updatedTime} 修改了该文档。\n\n";
 
-                if ($doc->type != Document::TYPE_DOC) {
+                if ( !in_array($doc->type, [Document::TYPE_VDITOR_DOC, Document::TYPE_DOC])) {
                     $raw = "# {$title}\n\n{$intro}暂不支持该类型的文档。";
                 } else {
                     $raw = "# {$title}\n\n{$intro}" . $doc->content;
@@ -262,7 +263,14 @@ class BatchExportController extends Controller
      */
     private function traverseNavigators(array $navigators, \Closure $callback, array $parents = [])
     {
-        $this->traverseNavigators($navigators, $callback, $parents);
+        foreach($navigators as $doc) {
+            call_user_func_array($callback, [$doc['id'], $parents]);
+            if(!empty($doc['nodes'])) {
+                $sub_parent = $parents;
+                $sub_parent[] = $doc['id'];
+                $this->traverseNavigators($doc['nodes'], $callback, $sub_parent);
+            }
+        }
     }
 
     /**
